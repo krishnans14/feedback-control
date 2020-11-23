@@ -6,8 +6,8 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: fastpages
-description: An easy to use blogging platform with support for Jupyter Notebooks.
+title: Travails of a Post-Modern Control Engineer
+description: In this blog, I document my wanderings in the rapidly changing technical world as a post-modern control engineer (pun intendend). The blog is hosted by fastpages and the entries will largely be written through Jupyter Notebooks.
 github_username: krishnans14
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "feedback-control"
