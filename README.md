@@ -6,14 +6,14 @@
 
 https://krishnans14.github.io/feedback-control/
 
-# Feedback-Control: A Blog
+# Post Modern Control Engineer: A Blog
 
 _powered by [fastpages](https://github.com/fastai/fastpages)_
 
-Welcome to the Feedback-Control Blog.
+Welcome to *Post Modern Control Engineer*, a blog on the musings around feedback control systems in the rapidly changing modern tech world.
 
 ## What's this blog about? ##
-My name is Krishnan and I am a post-modern-control-engineer. There is no such thing, I made it up. But for a reason. This blog is about my reactions and responses to the transition happening around the world and their relevance to the domain of control theory and applications.
+My name is Krishnan Srinivasarengan and I am a post-modern-control-engineer. There is no such thing, I made it up. But for a reason. This blog is about my reactions and responses to the transition happening around the world and their relevance to the domain of control theory and applications.
 
 ## Who am I to write this? ##
 I have a PhD in Automatic Control. I graduated from the Université de Lorraine in 2018 having done my research under the auspices of the lab, *Centre de Recherche en Automatique de Nancy [(CRAN)*](http://www.cran.univ-lorraine.fr/) or in English, Research Center for Automatic Control in Nancy. Further, true to the spirit of a control engineer being problem solver, I have worked in several domains solving technical problems: making telecom electronics systems work, searching for sensor faults inside a nuclear reactor core, putting the *smart* in smart grids, optimising energy in buildings, finding leaks in water distribution networks and so on. But all this doesn't necessarily qualify me, but what qualifies me the most is that I have/had strong opinions and I'm revisiting many of them, either to defend them or to relinquish them for a better one.
