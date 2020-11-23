@@ -6,24 +6,34 @@
 
 https://krishnans14.github.io/feedback-control/
 
-# My Blog
-
+# Feedback-Control: A Blog
 
 _powered by [fastpages](https://github.com/fastai/fastpages)_
 
+Welcome to the Feedback-Control Blog.
 
-## What To Do Next?
+## What's this blog about? ##
+My name is Krishnan and I am a post-modern-control-engineer. There is no such thing, I made it up. But for a reason. This blog is about my reactions and responses to the transition happening around the world and their relevance to the domain of control theory and applications.
 
-Great!  You have setup your repo.  Now its time to start writing content.  Some helpful links:
+## Who am I to write this? ##
+I have a PhD in Automatic Control. I graduated from the Université de Lorraine in 2018 having done my research under the auspices of the lab, *Centre de Recherche en Automatique de Nancy [(CRAN)*](http://www.cran.univ-lorraine.fr/) or in English, Research Center for Automatic Control in Nancy. Further, true to the spirit of a control engineer being problem solver, I have worked in several domains solving technical problems: making telecom electronics systems work, searching for sensor faults inside a nuclear reactor core, putting the *smart* in smart grids, optimising energy in buildings, finding leaks in water distribution networks and so on. But all this doesn't necessarily qualify me, but what qualifies me the most is that I have/had strong opinions and I'm revisiting many of them, either to defend them or to relinquish them for a better one.
 
-- [Writing Blogs With Jupyter](https://github.com/fastai/fastpages#writing-blog-posts-with-jupyter)
+## Still, what is a post-modern-control-engineer? ##
+It requires a bit of explanation (of course).
 
-- [Writing Blogs With Markdown](https://github.com/fastai/fastpages#writing-blog-posts-with-markdown)
+Control systems engineering isn't a traditional engineering discipline such as civil, electrical or mechanical. It is more akin to computer science engineering. Computer science engineering as a discipline grew as computers became complex, not just the electronics that underlie them, but the way a fully-built computer can do millions of different tasks in a myriad number of ways. This necessitated an abstract perspective to understand computers that are neither looking at the underlying electronics nor bothered about how a lay individual used it. To put it simply, a computer science engineer aims to guarantee the computer system would provide stable, optimized performance to attain a specific task (assuming the electronics works fine and the user isn't inputting garbage).
 
-- [Writing Blog Posts With Word](https://github.com/fastai/fastpages#writing-blog-posts-with-microsoft-word)
+Like computer science engineering caters to the abstraction of computers, control systems engineering caters to the abstraction of all engineering systems. The discipline in its nascent form grew during the industrial revolution when the need to develop a stable system that guarantees certain performance became paramount. And this leads to people making abstraction of these complex engineering systems. Until around the 1960s, this analysis focused on the frequency domain characteristics of the systems. The real-world system characteristics are written using differential equations and so analysing them in frequency domain meant the use of transforms ([Laplace transforms](https://en.wikipedia.org/wiki/Laplace_transform)). From the 1960s, the so-called state-space methods ushered in an era where one could directly analyze the differential equations after rewriting them in some nice form. Linear algebra started to run the show of this era referred to as the 'modern control era'.
 
-- [(Optional) Preview Your Blog Locally](_fastpages_docs/DEVELOPMENT.md)
+Unlike the revolution in computer science engineering leading to an explosion in the capabilities of a computer, modern control approaches found little takers outside of academia barring isolated successes (e.g., [Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter)). So much so that many approaches developed in the 1940s are still widely used across many industries. For academics, it feels like walking into a computer server room to find punch cards and vacuum tubes. But for the industrial practitioners, though, the modern control theory is just unintuitive and doesn't give confidence.
 
-Note: you may want to remove example blog posts from the `_posts`,  `_notebooks` or `_word` folders (but leave them empty, don't delete these folders) if you don't want these blog posts to appear on your site.
+After almost half a decade of the modern control era, with the advent of cheap sensors and a lot of data, the control community was hoping for a change of winds. The winds are changing. But this changed wind also brought in a new breed of computer science engineers who became apt in handling a lot of data with the explosion of the Internet. "Machine Learning is just rehashed Linear Algebra" is a common refrain. It is true, but it also appears a desperate attempt to discredit someone taking away what control engineers have long prized.
 
-Please use the [nbdev & blogging channel](https://forums.fast.ai/c/fastai-users/nbdev/48) in the fastai forums for any questions or feature requests.
+The question today is, would the industry practitioners change in any meaningful way? Or would it just be a cosmetic makeup? Control engineering is entering a post-modern era. What would it become? 
+
+If you hadn't noticed, the use of post-modern is also a tongue-in-cheek reference to the post-modernism in philosophy.
+
+That's why the name.
+
+## Oof, so what will there be? ##
+Join me in the journey of discovery, nerding, nostalgia, rants, feedback control history, keeping in touch with control theory research, most importantly, my attempts to integrate into the AI/ML community (that means childish projects).
