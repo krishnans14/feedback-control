@@ -27,6 +27,17 @@
   
 
   
+      ,"page1": {
+          "title": "About Me",
+          "content": "My name is Krishnan Srinivasarengan. I’m a control engineer by training and spirit. This blog is an attempt to understand the role of control engineer in the rapidly changing tech world, but also a place to share my thoughts, learnings, etc. . I’ve a PhD in Automatic Control from the Université de Lorraine, Nancy, France, a Masters in Electrical Engineering with the specialisation Control and Computing from the Indian Institute of Technology Bombay, India, and a Bachelors in Instrumentation and Control from National Institute of Technology, Trichy, India. . I live in France1. . at the time of this commit/writing. &#8617; . |",
+          "url": "https://krishnans14.github.io/feedback-control/about/",
+          "relUrl": "/about/",
+          "date": ""
+      }
+      
+  
+
+  
 
   
   
@@ -48,7 +59,7 @@
   
 
   
-      ,"page9": {
+      ,"page10": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://krishnans14.github.io/feedback-control/robots.txt",
