@@ -1,8 +1,8 @@
-
 ---
 layout: page
-title: About Me
 permalink: /about/
+title: About Me
+
 ---
 
 My name is [Krishnan Srinivasarengan](https://www.linkedin.com/in/krishnans14). I'm a control engineer by training and spirit. This blog is an attempt to understand the role of control engineer in the rapidly changing tech world, but also a place to share my thoughts, learnings, etc.
