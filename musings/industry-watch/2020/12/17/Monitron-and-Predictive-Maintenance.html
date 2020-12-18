@@ -80,7 +80,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
@@ -127,7 +127,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><div class="flash">
     <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>Seems simple. Why does such a big company has to do something such a thing?
+    <strong>Note: </strong>Seems simple. Why does such a big company has to do something simple?
 </div></p>
 
 </div>
@@ -138,21 +138,21 @@ window.onload = wrap_img;
 <p>I can't speak for Amazon, but some immediate thoughts:</p>
 <ul>
 <li>Because they can easily do it. </li>
-<li>This is a proxy to get more people to use AWS. They would have little to do to tune their ML algorithms to signals (or so they think)</li>
-<li>Predictive maintenance is today's hot topic under the Industry 4.0 framework, and a lot of investment goes in to plan/avoid machine downtimes. </li>
-<li>There is a hope that manufacturing will move back to the West if the manual labour required is offset by the use of AI and robots.Or at least stop some of the manufacturing from going away.</li>
+<li>This is a proxy to get more people to use AWS. Given that their AWS system has intelligence in form of ML algorithms, perhaps a little bit of tuning to work for sensor signals.</li>
+<li>Predictive maintenance is today's hot topic under the Industry 4.0 framework, and a lot of investment goes in to plan/avoid machine downtimes. So a good time to dive into this market.</li>
+<li>There is a hope that manufacturing will move back to the West if the manual labour required is offset by the use of AI and robots. Or at least stop some of the manufacturing from going away. Hence this kind of solution would be good from a future perspective.</li>
 <li>A lot of startups are into it. (So the cynical ones may claim that as usual Amazon is swooping in to grab the market from the small businesses)</li>
 </ul>
-<p>Recently, I had interactions with two startups that work on this very domain.</p>
+<p>Recently, I had interactions with two startups that work in this domain.</p>
 <ol>
-<li>The first one has two products: a power measurement block based end-to-end solution that provides insights into the energy consumption of buildings, industries, etc. They claim that their solution is cost-effective and has been widely adopted. The second one is a fairly recent product which has a high sampling rate sensors to provide predictive maintenance for rotating machinery such as motors, wind turbines, etc.</li>
+<li>The first one has two products: a power measurement block based end-to-end solution that provides insights into the energy consumption of buildings, industries, etc. They claim that their solution is cost-effective and has been widely adopted (cost is usually a big deal in this as extra money that goes into these solutions need to be offset sufficiently by the savings). They also have a  a fairly recent product which has a high sampling rate sensors to provide predictive maintenance for rotating machinery such as motors, wind turbines, etc.</li>
 <li>The other has a focus on food product manufacturing (and hence still has a strong presence in the West) and how to keep their yields through predictive maintenance and optimisation.</li>
 </ol>
 <p>I really wanted to discuss how Monitron's entry affects them, but due to the way the interaction panned out, I didn't try my luck much. There are tons of companies that are into this kind of problems and though they have their specialized ways in accomplishing predictive maintenance tasks, Amazon's venture would definitely make things different.</p>
-<p>Back when I was working at the TCS' research arm, the main research problem on which I spent most of my time was <strong>Source Separation</strong>. The question is on how to disentangle the multiple sources that are responsible for the effects seen on a single or a small number of measurements. One key application problem we worked on was that of <a href="https://en.wikipedia.org/wiki/Nonintrusive_load_monitoring">Non-intrusive Load Monitoring (NILM)</a>, estimating the consumption of individual appliances in a household using smart meter data. I will write a lot more in detail about this problem in another post.</p>
-<p>During this time, we also floated proposals to clients on using NILM solutions for condition monitoring of industrial equipment. However, those were extremely preliminary, exploratory proposals as the data analytics domain was still getting on its feet. And there always remained a concern on how to store the large volume of data.</p>
-<p>Today, the infrastructure issues for them seem to have got sorted out. That is, cheap sensors are available, transferring this data to storage isn't a big deal with the ubiquitous availability of WiFi, Bluetooth, and the ever-growing cloud storage, the easy availability of simple ML algorithms and the beautiful visualization that the data and the analytics they generate can be put through.</p>
-<p>The question remains, however, whether the algorithms have gotten any better? Deep Learning has definitely blown away problems in a number of applications. However, it still isn't on a super-strong footing for tabular data, and more so for time-series data (training RNNs is still a challenge to overcome). And Reinforcement learning is making robots better, though its applications have been within a narrow set of applications. If the algorithms don't change much, this would be the second version of SCADA and other industrial automation tools that improved the industrial monitoring infrastructure a few decades ago (which in itself is definitely good)</p>
+<p>Back when I was working at the TCS' research arm, the main research problem on which I spent most of my time was <strong>Source Separation</strong>. The central question here is this: how to disentangle the multiple sources that are responsible for the effects seen on a single or a small number of measurements. One key application problem we worked on was that of <a href="https://en.wikipedia.org/wiki/Nonintrusive_load_monitoring">Non-intrusive Load Monitoring (NILM)</a>, estimating the consumption of individual appliances in a household using smart meter data. I will write a lot more in detail about this problem in another post.</p>
+<p>During this time, we also floated proposals to clients on using NILM solutions for condition monitoring of industrial equipment. However, those were extremely preliminary, exploratory proposals as the data analytics domain was still getting on its feet, especially when it comes to time-series data. And there always remained a concern on how to store the large volume of data.</p>
+<p>Today, the infrastructure issues for them seem to have got sorted out. That is, cheap sensors are available, transferring this data to storage isn't a big deal with the ubiquitous availability of WiFi, Bluetooth, and the ever-growing cloud storage, the easy availability of ML algorithms for analytics and the beautiful visualization we can generate with the data and the insights from the algorithms.</p>
+<p>The question remains, however, whether the algorithms have gotten any better? Deep Learning has definitely blown away problems in a number of applications (in particular image, speech and text processing). However, it still isn't on a super-strong footing for tabular data, and more so for time-series data (training RNNs is still a challenge to overcome). And Reinforcement learning is making robots better, cracking through tough games and so on, though their applications beyond such controlled environment is still ongoing. If the algorithms don't change much, this would be the second version of SCADA and other industrial automation tools that improved the industrial monitoring infrastructure a few decades ago (which in itself is definitely good but not a real analytics revolution).</p>
 <p>Time will only tell if these algorithms can overcome the challenges the control and monitoring algorithms of the previous generation, that is, trust. For my part, though, I will study them and share my opinions.</p>
 
 </div>
