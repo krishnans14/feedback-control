@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Non-Intrusive Load Monitoring - NILM | Post-Modern Control Engineer</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Non-Intrusive Load Monitoring - NILM" />
+<meta name="author" content="Krishnan Srinivasarengan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A source separation problem that can enable a better, smarter electric grid" />
+<meta property="og:description" content="A source separation problem that can enable a better, smarter electric grid" />
+<link rel="canonical" href="https://krishnans14.github.io/feedback-control/projects/2020/12/30/NILM.html" />
+<meta property="og:url" content="https://krishnans14.github.io/feedback-control/projects/2020/12/30/NILM.html" />
+<meta property="og:site_name" content="Post-Modern Control Engineer" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-30T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://krishnans14.github.io/feedback-control/projects/2020/12/30/NILM.html","@type":"BlogPosting","headline":"Non-Intrusive Load Monitoring - NILM","dateModified":"2020-12-30T00:00:00-06:00","datePublished":"2020-12-30T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://krishnans14.github.io/feedback-control/projects/2020/12/30/NILM.html"},"author":{"@type":"Person","name":"Krishnan Srinivasarengan"},"description":"A source separation problem that can enable a better, smarter electric grid","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/feedback-control/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://krishnans14.github.io/feedback-control/feed.xml" title="Post-Modern Control Engineer" /><link rel="shortcut icon" type="image/x-icon" href="/feedback-control/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/feedback-control/">Post-Modern Control Engineer</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/feedback-control/about/">About Me</a><a class="page-link" href="/feedback-control/search/">Search</a><a class="page-link" href="/feedback-control/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Non-Intrusive Load Monitoring - NILM</h1><p class="page-description">A source separation problem that can enable a better, smarter electric grid</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-12-30T00:00:00-06:00" itemprop="datePublished">
+        Dec 30, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Krishnan Srinivasarengan</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/feedback-control/categories/#projects">projects</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Context">Context </a></li>
+<li class="toc-entry toc-h2"><a href="#An-intro">An intro </a></li>
+<li class="toc-entry toc-h2"><a href="#Client-Project">Client Project </a></li>
+<li class="toc-entry toc-h2"><a href="#NILM-Techniques-Explored">NILM Techniques Explored </a></li>
+<li class="toc-entry toc-h2"><a href="#Beyond-household-disaggregation">Beyond household disaggregation </a></li>
+<li class="toc-entry toc-h2"><a href="#A-few-words-before-the-end">A few words before the end </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-12-30-NILM.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Context">
+<a class="anchor" href="#Context" aria-hidden="true"><span class="octicon octicon-link"></span></a>Context<a class="anchor-link" href="#Context"> </a>
+</h2>
+<p>I spent just over three years at the research arm of Tata Consultancy Services (then called the Innovation Labs) from 2011 to 2014 (before I took a sabbatical for my doctoral studies and eventually moved out). The experience of working on futuristic technology problems in an industrial environment was interesting. I had the opportunity to witness an idea grow from its budding stage to eventual proof of concept and further adoption.</p>
+<p>One research problem that occupied most of my time during this stint was <em>Source Separation</em>. The idea underlying the problem stems from the need to analyse the multiple sources that give rise to a multitude of effects on a single (or a small number of) measurements. One application problem that came out of it (which was in its infancy during that time, and is at various stages of implementation today): <a href="https://en.wikipedia.org/wiki/Nonintrusive_load_monitoring">Non-intrusive load monitoring (NILM)</a>.</p>
+<p>In this article, I will discuss my experiences working on this problem.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="An-intro">
+<a class="anchor" href="#An-intro" aria-hidden="true"><span class="octicon octicon-link"></span></a>An intro<a class="anchor-link" href="#An-intro"> </a>
+</h2>
+<p>A couple of years or so back, EDF, the French electric giant, with whom I have a contract for my house's electricity, updated their app/interface with a possible option to follow our daily consumption profile. This followed the installation of the smart electric meters, known as <code>Linky</code>, in our apartment. While this did not provide me with insights that I did not already have, there was something more on offer. The application also allowed me to dive further into the categories of my consumption based on different groupings:</p>
+<ol>
+<li>Refrigeration</li>
+<li>Water heating </li>
+<li>Electric heater</li>
+<li>Cooking</li>
+<li>Infotainment and Computers.</li>
+</ol>
+<p>The recent screen capture of this looks something like this (I redacted the amount and my address):</p>
+<p><figure>
+  
+    <img class="docimage" src="/feedback-control/images/copied_from_nb/./../images/nilm/nilm_edf.jpg" alt="NILM - EDF" style="max-width: 300px">
+    
+    
+</figure>
+</p>
+<p>The refrigerator consumed 9% of the total electricity consumption. And one can get a vague idea already about how much the other categories consumed. Given the furore over data privacy, I had to <em>unlock</em> these features by deliberately giving EDF the rights handle my data.</p>
+<p>By now, one would have got the idea of what NILM means:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>To disaggregate or distinguish between different electrical appliances and their power consumption using a single power meter data.
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Or, one could view NILM algorithms acting like a prism</p>
+<p><figure>
+  
+    <img class="docimage" src="/feedback-control/images/copied_from_nb/./../images/nilm/nilm_prism.png" alt="NILM - Prism" style="max-width: 500px">
+    
+    
+</figure>
+</p>
+<p>When I first started to work on the problem of NILM, the academic papers were all interested in a sampling rate of once in 1 second. And right in line, the open datasets were also developed to the same tune. For example, the <a href="http://redd.csail.mit.edu/">REDD</a> dataset from (the then) MIT team with <a href="http://zicokolter.com/">Zico Kolter</a> at the helm provided data in that sampling rate range. Subsequent open data sets followed suit with similar ones. And some, like the popular dataset from Ubicomp Lab at the University of Washington on <a href="https://www.kaggle.com/c/belkin-energy-disaggregation-competition">Kaggle</a> (that featured in the Belkin competition), had an even higher frequency of operation.</p>
+<p>However, the <em>Linky</em> smart meters installed in my apartment collects data once in 15 minutes and maps more closely to my ventures just before I started my PhD. In this work, we explored the use of AMI type data for NILM. AMI stands for Advanced Metering Infrastructure, the type of metering companies were hoping to install in households (sampling the cumulated power consumption every 15 minutes or so). This is in contrast with the high-frequency data over which most of the academic research work were based on. While challenging, that seemed unrealistic and so we wrote this paper summarizing our then-ongoing efforts.</p>
+<p><a href="https://link.springer.com/chapter/10.1007/978-3-319-04960-1_8">Springer Link behind paywall</a> or perhaps more useful would be the <a href="./../files/sirs_14_final.pdf">link to Pre-print</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Client-Project">
+<a class="anchor" href="#Client-Project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client Project<a class="anchor-link" href="#Client-Project"> </a>
+</h2>
+<p>In our initial work, we focused on using the open datasets (for lack of data from our side). Things changed due to a pilot project to implement NILM in the Netherlands for a startup client. The unfortunate thing was we started without any data to work with and limited assumptions. The IT team built a data handling infrastructure awaiting installation of sensors, but developing a machine learning algorithm without data was a cruel joke (we weren't even sure on what would be the sampling rate of data because our client was still discussing with their potential clients about it).</p>
+<p>So we decided to do what today is terms as <a href="https://en.wikipedia.org/wiki/Transfer_learning"><em>Transfer Learning</em></a> which (as per Wikipedia)</p>
+<blockquote>
+<p>focuses on storing knowledge gained while solving one problem and applying it to a different but related problem.</p>
+</blockquote>
+<p>without actually knowing what the term <em>transfer learning</em>. We collected some statistics/pattern about the characteristics of various appliances from the open datasets available. Then we created a pseudo database for different appliances that could then be used for training when the data arrived.</p>
+<p>An extra problem that plagued the initial efforts were in obtaining appliance level signatures. The pilot was in households where the wiring of the appliances was well integrated into the walls and it was difficult to put plugs to tap them. This led to an extra aspect of <em>gamification</em> introduced to label data. The process was as follows:<em> Using the transfer learning-based database, our NILM algorithm will provide detection of appliances.</em> The inhabitants of the households will get notifications at the end of the day on these detections through a mobile App.</p>
+<ul>
+<li>The user labels the detection (correct or wrong) based on their own knowledge.</li>
+<li>The NILM algorithm trains a model specific to each household based on this labelling.</li>
+</ul>
+<p>Several aspects of the above process were in flux. For instance, we were exploring different algorithms that can perform NILM (note that back in 2013, this area was fresh and had limited success) or the <em>gamification</em> aspects were not clear (how much to trust the feedback, etc.). But with all the limitations, a pilot went forward and looked good. But everything also came to an abrupt end due to financial constraints at the startup.</p>
+<p>During the same period, several other startups, notably in the US were working on the NILM problem. Some of them are still active: <a href="https://www.bidgely.com/">Bidgely</a>, <a href="https://en.wikipedia.org/wiki/Opower">Opower</a>, and more (check this <a href="https://blog.oliverparson.co.uk/2012/05/nialm-in-industry.html">2012 entry on Oliver Parson's blog</a> on companies working on NILM). Several other companies came in and disappeared as it always happens. I worked with one of them.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="NILM-Techniques-Explored">
+<a class="anchor" href="#NILM-Techniques-Explored" aria-hidden="true"><span class="octicon octicon-link"></span></a>NILM Techniques Explored<a class="anchor-link" href="#NILM-Techniques-Explored"> </a>
+</h2>
+<p>It is not surprising that we tried several techniques to realize NILM. Further, unlike academic freedom, we had to work with a limited set of assumptions and hence the need to use customized techniques (which were of course not published). But here are some techniques that were published:</p>
+<ul>
+<li>Bayesian Inference <a href="https://ieeexplore.ieee.org/abstract/document/6603710">IEEE link behind paywall</a> or <a href="./../files/esiot13_final.pdf">Preprint</a>
+</li>
+<li>Factor Graphs <a href="https://ieeexplore.ieee.org/abstract/document/6637447/">IEEE link behind paywall</a> or <a href="./../files/icacci13_final.pdf">Preprint</a>
+</li>
+</ul>
+<p>Apart from the different techniques, we also presented a paper on the approach to use a mix of transfer learning and simulation to generate labelled data over which NILM algorithms could be tested: <a href="https://dl.acm.org/doi/abs/10.1145/2559627.2559630">ACM link behind paywall</a> or <a href="./../files/es4cps_final.pdf">Preprint</a></p>
+<p>I will discuss these techniques and those we explored in more details sometime in the future.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Beyond-household-disaggregation">
+<a class="anchor" href="#Beyond-household-disaggregation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Beyond household disaggregation<a class="anchor-link" href="#Beyond-household-disaggregation"> </a>
+</h2>
+<p>Our explorations for the application of NILM went beyond the household energy disaggregation pilot project with the Dutch startup. The following were the other problems that were at explored:</p>
+<ul>
+<li>Cost-savings for a large building<ul>
+<li>A large office building of an enterprise also contained a cafeteria serving hundreds of diners. The power to these were supplied from a single transformer. This means that the electricity tarrif paid by the enterprise was corresponding to a commercial establishment (the cafeteria) and not the workplace. The latter was much cheaper. We gave a proposal of how one could attempt to use NILM and obtain an estimation of the two entities and save cost in the electricity bill paid.</li>
+</ul>
+</li>
+<li>Condition monitoring of appliances or industrial equipments<ul>
+<li>Today, the central aspect of Industry 4.0 is the condition monitoring of equipment to perform predictive maintenance, so much so that even <a href="https://krishnans14.github.io/feedback-control/musings/industry-watch/2020/12/17/Monitron-and-Predictive-Maintenance.html">Amazon is into it</a>. A couple of proposals were floated in that direction back in 2013-14.</li>
+</ul>
+</li>
+<li>Disaggregation of load versus generation (with rooftop solar installation)<ul>
+<li>When the rooftop solar installations became popular, different countries took different approaches to their integration with the grid. In some countries, there were no restrictions on how an individual household decides to integrate solar panels with their own usage or to connect back to the grid. We floated ideas on how to use NILM on the smart meter data to estimate generation capacity in a household.</li>
+<li>A related application was whether we can use a single smart meter to identify defects in a host of solar PV panels (say on rooftops or a farm).</li>
+</ul>
+</li>
+<li>Activity monitoring<ul>
+<li>A more contentious application of NILM was on activity monitoring. A <a href="https://patents.google.com/patent/WO2015124972A1/en">patent</a> was filed in this application towards the fag end of my stay in the lab.</li>
+</ul>
+</li>
+</ul>
+<p>These are the applications that I remember from the top of my head.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-few-words-before-the-end">
+<a class="anchor" href="#A-few-words-before-the-end" aria-hidden="true"><span class="octicon octicon-link"></span></a>A few words before the end<a class="anchor-link" href="#A-few-words-before-the-end"> </a>
+</h2>
+<p>Recently, I bumped into the <a href="http://nilmworkshop.org/2020/">NILM workshop for 2020</a> organized online and came across their papers and the YouTube live videos.</p>
+<p>I would try to spend some more time into these papers and posters and synthesize some thoughts for a future post where I would also like to discuss the <a href="https://github.com/nilmtk/nilmtk">NILMTK python module</a>, which I had been itching to try.</p>
+<p>It would be disingenious not to acknowledge the contributions of co-workers/supervisors in the above endeavours, though one can see the presence of <a href="https://in.linkedin.com/in/mgirishchandra">M Girish Chandra</a>, <a href="https://ca.linkedin.com/in/goutam-yelluru-gopal-93549428">Goutam YG</a> prominently in all the publications.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="krishnans14/feedback-control"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/feedback-control/projects/2020/12/30/NILM.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/feedback-control/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feedback-control/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/feedback-control/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog on the musings around feedback control systems in the rapidly changing modern tech world.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/krishnans14" title="krishnans14"><svg class="svg-icon grey"><use xlink:href="/feedback-control/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/krishnans14" title="krishnans14"><svg class="svg-icon grey"><use xlink:href="/feedback-control/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
