@@ -80,7 +80,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      10 min read
     
 </span></p>
 
@@ -417,14 +417,38 @@ The key sequences can be summarized as:</p>
 <h3 id="Simultaneous-detectability-of-Sensor-faults-and-Leaks">
 <a class="anchor" href="#Simultaneous-detectability-of-Sensor-faults-and-Leaks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simultaneous detectability of Sensor faults and Leaks<a class="anchor-link" href="#Simultaneous-detectability-of-Sensor-faults-and-Leaks"> </a>
 </h3>
-<p>Given this monstrous looking graph obtained from a simple WDN, we try to understand if we can derive conditions to distinguish between a fault and a leak and when.
-</p>
+<p>The graph in Fig 5 is monstrous despite of the caveat that we are considering leaks and faults in all the nodes. However, this is true in situations where we are trying to find when we don't know otherwise, that is, when we have to distinguish between sensor faults and leaks.</p>
+<p>Our question hence was, can we derive conditions to distinguish between a fault and a leak and when.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
 <div class="flash">
     <svg class="octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>We prove that this is under a specific graph condition which is pretty easy to check (partition the graph into subgraphs, and verify if the subgraph containing the node 0 is a tree). 
+    <strong>Note: </strong>We prove this is under a specific graph condition which is pretty easy to check  
 </div>
-Under what conditions? Assuming that we have a single measurment (from all sensors) and want to distinguish between sensor faults and leaks.
-<p>How is it useful?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, what happened as an added bonus was, this condition helped us to actually obtain a neat strategy to estimate leaks as discussed in the next section.</p>
+<p>What are the steps to verify this ability to distinguish sensor faults and leaks?</p>
+<ol>
+<li>partition the graph into subgraphs, </li>
+<li>Verify if the subgraph containing the node 0 is a tree.</li>
+</ol>
+<p>Yep, that's it. So how do we do it? or rather what is the trick?</p>
+<ul>
+<li>We equate detectability to solvability of the equations represented by the graph (this is a very fundamental requirement, so true. The caveat is that it is very conservative. Well, fortunately for us, it does not matter because of the added bonus).</li>
+</ul>
+<p>Final added bonus: Checking whether a subgraph is a tree is super fast ($\mathbf{O}(n)$ in complexity parlance)</p>
 
 </div>
 </div>
