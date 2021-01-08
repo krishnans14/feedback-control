@@ -149,11 +149,11 @@ window.onload = wrap_img;
 <h2 id="Prelude">
 <a class="anchor" href="#Prelude" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prelude<a class="anchor-link" href="#Prelude"> </a>
 </h2>
-<p>In general, short post-doc research work are expected to be hyper-focused. This is because it is not easy for a candidate to look for an open problem, solve it and make it work within whatever short period available. The 1.5 year or so I spent for my postdoc at the CRAN lab had other ideas. When I started, it was not believed that we would have anything interesting and <em>publishable</em> out of it. So I had a lot less pressure and I went around looking for different ways to visualize the problem and chanced upon one interesting approach. This is a summary of what happened there in a semi-technical terms. Of course, peer review would let us know if what we think is interesting is indeed so, but I can look back and say we came up with an interesting solution and got an interesting story to tell.</p>
+<p>In general, short post-doc research work is expected to be hyper-focused. This is because it is not easy for a candidate to look for an open problem, solve it and make it work within whatever short period available. The 1.5 years or so I spent for my postdoc at the CRAN lab had other ideas. When I started, it was not believed that we would have anything interesting and <em>publishable</em> out of it. So I had a lot less pressure and I went around looking for different ways to visualize the problem and chanced upon one interesting approach. This is a summary of what happened there in semi-technical terms. Of course, peer review would let us know if what we think is interesting is indeed so, but I can look back and say we came up with an interesting solution and got an interesting story to tell.</p>
 <h2 id="Background">
 <a class="anchor" href="#Background" aria-hidden="true"><span class="octicon octicon-link"></span></a>Background<a class="anchor-link" href="#Background"> </a>
 </h2>
-<p>The <a href="https://www.hydreos.fr/projets/sphereau/44.html">project SPHEREAU</a>, a French abbreviation (Solutions de Programmation Hiérarchisée pour l’Efficience des Réseaux d’EAU), is a French government funded collaborative project guided by the HYDREOS group. This project brought together the following industry and academic groups to develop a method to bring more energy efficiency to water distribution networks:</p>
+<p>The <a href="https://www.hydreos.fr/projets/sphereau/44.html">project SPHEREAU</a>, a French abbreviation (Solutions de Programmation Hiérarchisée pour l’Efficience des Réseaux d’EAU), is a French government-funded collaborative project guided by the HYDREOS group. This project brought together the following industry and academic groups to develop a method to bring more energy efficiency to water distribution networks:</p>
 <ul>
 <li>Université de Lorraine (CRAN lab)</li>
 <li>ENGEES (Strasbourg)</li>
@@ -202,10 +202,10 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Of course, real-world data has problems. Missing data, some mis-labeled data and so on are the bread and butter of data scientists. But, there was more:</p>
+<p>Of course, real-world data has problems. Missing data, some mis-labelled data and so on are the bread and butter of data scientists. But, there was more:</p>
 <ol>
 <li>Only operational data was available. Meaning, we can't train a model to understand <em>normal</em> behaviour and <em>leaky</em> behaviour.</li>
-<li>No ground truth and no labeling of leaks or other anomalies.</li>
+<li>No ground truth and no labelling of leaks or other anomalies.</li>
 <li>The Sensor data could be missing for prolonged periods. And there were multiplicative and drift errors in Sensor data.</li>
 </ol>
 
@@ -230,9 +230,9 @@ window.onload = wrap_img;
 <h2 id="What's-the-idea-to-describe-it-here?">
 <a class="anchor" href="#What's-the-idea-to-describe-it-here?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the idea to describe it here?<a class="anchor-link" href="#What's-the-idea-to-describe-it-here?"> </a>
 </h2>
-<p>I want to see this as an example of how traditional control theory discipline can aid in the use of machine learning tools for engineering applications. We made use of civil engineering domain background, graph theory, some good old linear algebra to augment the Machine learning model to create a nice recipe for an explainable estimation of the leaks.</p>
+<p>I want to see this as an example of how traditional control theory discipline can aid in the use of machine learning tools for engineering applications. We made use of the civil engineering domain background, graph theory, some good old linear algebra to augment the Machine learning model to create a nice recipe for an explainable estimation of the leaks.</p>
 <p>This I think is how a Post-Modern-Control-Engineer (or PoMoCoE) be pacified by the use of his skills in aiding the advancing Machine learning Tsunami and not be washed away by it.</p>
-<p>And it also clearly shows that almost all the skills a control engineer holds are transferable with the integration of Machine Learning work flow.</p>
+<p>And it also clearly shows that almost all the skills a control engineer holds are transferable with the integration of Machine Learning workflow.</p>
 
 </div>
 </div>
@@ -260,9 +260,9 @@ window.onload = wrap_img;
 </ul>
 <p>From the perspective of leak detection, the water quality sensors aren't useful and hence we focus only on the flow and tank sensors. The sensors were available at sampling rates between 15 minutes and 1 hour (not counting missing data) depending upon when/where a sensor is installed.</p>
 <p>We had to hunt for sensors for which data was available over a long period of time. And perhaps, data available for a group of sensors topological close to each other (and hence connected). After analyzing 100+ sensors we focused on a few of them to develop and illustrate the approach and then generalize it.</p>
-<p>During this data analysis, we made note of a number of things that were not explicit based on what the technicians could share with us:</p>
+<p>During this data analysis, we made note of a number of things that were not explicitly based on what the technicians could share with us:</p>
 <ul>
-<li>Some sensor data had a weird inverted characteristics and the data needed some pre-processing to even make it <em>look</em> reasonable.</li>
+<li>Some sensor data had weird inverted characteristics and the data needed some pre-processing to even make it <em>look</em> reasonable.</li>
 <li>Data resolution capabilities of some sensors were not good and led to an oscillatory behaviour with sensor data oscillating between two quantization states.</li>
 <li>Sensors appeared to have been changed during the period for which the data was available and displayed different characteristics.</li>
 </ul>
@@ -278,7 +278,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#Feature-Selection/Engineering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Feature Selection/Engineering<a class="anchor-link" href="#Feature-Selection/Engineering"> </a>
 </h3>
 <p>Target: Flow
-Features available: Time stamp
+Features available: Timestamp
 We are modelling the consumption characteristics of villages and groups of villages and are using the flow sensors (and if available, level sensors). Modelling it purely as a time-series data isn't viable because of the following challenges:</p>
 <ul>
 <li>Nonlinear characteristics of the data</li>
@@ -301,7 +301,7 @@ We are modelling the consumption characteristics of villages and groups of villa
 </ul>
 </li>
 <li>
-<p><strong>Meteorological Features</strong> Using some publicly available data sets, we collected a number of meteorological features:</p>
+<p><strong>Meteorological Features</strong> Using some publicly available data sets, we collected several meteorological features:</p>
 <ul>
 <li>Temperature (per day: average, minimum, maximum )</li>
 <li>Humidity (per day: average)</li>
@@ -320,9 +320,9 @@ We are modelling the consumption characteristics of villages and groups of villa
 <a class="anchor" href="#Post-Exploratory-data-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Post-Exploratory data analysis<a class="anchor-link" href="#Post-Exploratory-data-analysis"> </a>
 </h4>
 <ol>
-<li>Instead of having two separate features as day of the week and weekend/weekday, we did what is referred to as <em>feature engineering</em>. We numbered the days of the week from 1 to 5 for the week days and 14 and 15 for the week ends.</li>
+<li>Instead of having two separate features like a day of the week and weekend/weekday, we did what is referred to as <em>feature engineering</em>. We numbered the days of the week from 1 to 5 for the weekdays and 14 and 15 for the weekends.</li>
 <li>Only the temperature data from the weather features were retained.</li>
-<li>There were other social details we wanted to integrate (such as the 'Bridge' vacation that the French routinely take by taking a day off on Friday/Monday when there is a holiday on Thursday/Tuesday respectively). However, this was abandoned after some initial attempts.</li>
+<li>There were other social details we wanted to integrate (such as the 'Bridge' vacation that the French routinely takes by taking a day off on Friday/Monday when there is a holiday on Thursday/Tuesday respectively). However, this was abandoned after some initial attempts.</li>
 </ol>
 
 </div>
@@ -343,7 +343,7 @@ We are modelling the consumption characteristics of villages and groups of villa
 <h3 id="Model-selection-and-constraining">
 <a class="anchor" href="#Model-selection-and-constraining" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model selection and constraining<a class="anchor-link" href="#Model-selection-and-constraining"> </a>
 </h3>
-<p>The choice of model was tricky. Given that we are relying on <em>features</em> instead of <em>inputs</em>, the model, a blackbox machine learning model made sense. The following constaints drove the direction of choosing the model:</p>
+<p>The choice of model was tricky. Given that we are relying on <em>features</em> instead of <em>inputs</em>, the model, a black box machine learning model made sense. The following constraints drove the direction of choosing the model:</p>
 <ul>
 <li>Nonlinear characteristics</li>
 <li>Lack of ground truth</li>
@@ -379,7 +379,7 @@ We are modelling the consumption characteristics of villages and groups of villa
 <p>With all the above set up, the training of the model run smoothly. To avoid overfitting, a regularisation kernel is also computed and is used as part of the model training.
 The key sequences can be summarized as:</p>
 <ol>
-<li>The data and the characteristics are preprocessed to give out neatly manageable inputs and ouputs.
+<li>The data and the characteristics are preprocessed to give out neatly manageable inputs and outputs.
 <pre><code>sensor_data, features = preprocessing(raw_data, characteristics)</code></pre>
 </li>
 <li>The Kernels are then computed using the model constraints (by fixing the hyperparameters, <code>rbd_nodes</code> and <code>rbd_sigma</code>)
@@ -400,12 +400,12 @@ The key sequences can be summarized as:</p>
 <h2 id="Topological-model-of-the-Water-Network">
 <a class="anchor" href="#Topological-model-of-the-Water-Network" aria-hidden="true"><span class="octicon octicon-link"></span></a>Topological model of the Water Network<a class="anchor-link" href="#Topological-model-of-the-Water-Network"> </a>
 </h2>
-<p>Why do we need topological model? Because, we need to find a way to distinguish between the leaks and sensor faults using the relationship between the sensors due to their positioning.</p>
+<p>Why do we need a topological model? Because we need to find a way to distinguish between the leaks and sensor faults using the relationship between the sensors due to their positioning.</p>
 <h3 id="Graph-equivalent-through-Electrical-analogy">
 <a class="anchor" href="#Graph-equivalent-through-Electrical-analogy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Graph equivalent through Electrical analogy<a class="anchor-link" href="#Graph-equivalent-through-Electrical-analogy"> </a>
 </h3>
-<p>We first developed a simple electrical circuit equivalent for the sensor network. The flow sensor would be replaced by current sensors, the consumption points would be replaced by resistances (connected to ground). (The capacitances would help modelling the water tanks, but this was not included in the results).</p>
-<p>A graph equivalent model was derived from this electrical equivalent circuit with a novelty, where the flow or the measurement is represented by edges and the consumption points represented by nodes. This is quite contrary to the traditional modelling approach, but served well for our purpose.</p>
+<p>We first developed a simple electrical circuit equivalent for the sensor network. The flow sensor would be replaced by current sensors, the consumption points would be replaced by resistances (connected to ground). (The capacitances would help to model the water tanks, but this was not included in the results).</p>
+<p>A graph equivalent model was derived from this electrical equivalent circuit with a novelty, where the flow or the measurement is represented by edges and the consumption points represented by nodes. This is quite contrary to the traditional modelling approach but served well for our purpose.</p>
 <p>We then used this graph and added representations for leaks ($\mathcal{L}$) and sensor faults ($\mathcal{D}$). Both these anomalies were represented as edges with appropriate colouring. The transformation from the WDN to the graph to analyse for the next step is given in the following images</p>
 <p><img src="/feedback-control/images/copied_from_nb/./../images/sphereau/wdn.png" alt=""></p>
 <p><img src="/feedback-control/images/copied_from_nb/./../images/sphereau/wdn_electrical.png" alt=""></p>
@@ -422,7 +422,7 @@ The key sequences can be summarized as:</p>
 <h3 id="Simultaneous-detectability-of-Sensor-faults-and-Leaks">
 <a class="anchor" href="#Simultaneous-detectability-of-Sensor-faults-and-Leaks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simultaneous detectability of Sensor faults and Leaks<a class="anchor-link" href="#Simultaneous-detectability-of-Sensor-faults-and-Leaks"> </a>
 </h3>
-<p>The graph in Fig 5 is monstrous despite of the caveat that we are considering leaks and faults in all the nodes. However, this is true in situations where we are trying to find when we don't know otherwise, that is, when we have to distinguish between sensor faults and leaks.</p>
+<p>The graph in Fig 5 is monstrous despite the caveat that we are considering leaks and faults in all the nodes. However, this is true in situations where we are trying to find when we don't know otherwise, that is when we have to distinguish between sensor faults and leaks.</p>
 <p>Our question hence was, can we derive conditions to distinguish between a fault and a leak and when.</p>
 
 </div>
@@ -443,7 +443,7 @@ The key sequences can be summarized as:</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, what happened as an added bonus was, this condition helped us to actually obtain a neat strategy to estimate leaks as discussed in the next section.</p>
+<p>Now, what happened as a bonus was, this condition helped us to actually obtain a neat strategy to estimate leaks as discussed in the next section.</p>
 <p>What are the steps to verify this ability to distinguish sensor faults and leaks?</p>
 <ol>
 <li>partition the graph into subgraphs, </li>
@@ -451,9 +451,9 @@ The key sequences can be summarized as:</p>
 </ol>
 <p>Yep, that's it. So how do we do it? or rather what is the trick?</p>
 <ul>
-<li>We equate detectability to solvability of the equations represented by the graph (this is a very fundamental requirement, so true. The caveat is that it is very conservative. Well, fortunately for us, it does not matter because of the added bonus).</li>
+<li>We equate detectability to the solvability of the equations represented by the graph (this is a very fundamental requirement, so true. The caveat is that it is very conservative. Well, fortunately for us, it does not matter because of the bonus).</li>
 </ul>
-<p>Final added bonus: Checking whether a subgraph is a tree is super fast ($\mathbf{O}(n)$ in complexity parlance)</p>
+<p>Final bonus: Checking whether a subgraph is a tree is super fast ($\mathbf{O}(n)$ in complexity parlance)</p>
 
 </div>
 </div>
@@ -464,8 +464,8 @@ The key sequences can be summarized as:</p>
 <h2 id="The-Leak-Estimation-Strategy">
 <a class="anchor" href="#The-Leak-Estimation-Strategy" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Leak Estimation Strategy<a class="anchor-link" href="#The-Leak-Estimation-Strategy"> </a>
 </h2>
-<p>Given a large water distribution network and its graph, we partition into several subgraphs. This is necessitated because on large networks, the amplitude of flow measured by sensors sitting on top of trees can become insensitive to leaks and faults in sensors downstream.</p>
-<p>This allows us to analyze sub-regions of a water distribution network and apply the simultaneous detectability results.</p>
+<p>Given a large water distribution network and its graph, we partition into several subgraphs. This is necessitated because, on large networks, the amplitude of flow measured by sensors sitting on top of trees can become insensitive to leaks and faults in sensors downstream.</p>
+<p>This allows us to analyze the sub-regions of a water distribution network and apply the simultaneous detectability results.</p>
 <ol>
 <li>Consider all possible leak and sensor fault combinations</li>
 <li>Obtain those combinations that are distinguishable using the detectability results</li>
@@ -477,7 +477,7 @@ The key sequences can be summarized as:</p>
 <li>Compute the $\mathbb{L}_1$ norm</li>
 <li>Output: The combination(s) of leaks and faults presenting the smallest norm.</li>
 </ol>
-<p>This algorithm essentially reproduces LASSO, with one extra advantage. Since several combinations can have the smallest norm (it happens more than we imagine, especially when there are sensor faults), we can estimate leaks not as a single point, but as a range. This would help the engineer to make a better decision and explains the underlying  process better.</p>
+<p>This algorithm essentially reproduces LASSO, with one extra advantage. Since several combinations can have the smallest norm (it happens more than we imagine, especially when there are sensor faults), we can estimate leaks not as a single point, but as a range. This would help the engineer to make a better decision and explains the underlying process better.</p>
 
 </div>
 </div>
