@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>OctopAI | Post-Modern Control Engineer</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="OctopAI" />
+<meta name="author" content="Krishnan Srinivasarengan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An obstacle avoidance game to test AI" />
+<meta property="og:description" content="An obstacle avoidance game to test AI" />
+<link rel="canonical" href="https://krishnans14.github.io/feedback-control/projects/babysteps/2021/02/03/OctopAI.html" />
+<meta property="og:url" content="https://krishnans14.github.io/feedback-control/projects/babysteps/2021/02/03/OctopAI.html" />
+<meta property="og:site_name" content="Post-Modern Control Engineer" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-03T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://krishnans14.github.io/feedback-control/projects/babysteps/2021/02/03/OctopAI.html","@type":"BlogPosting","headline":"OctopAI","dateModified":"2021-02-03T00:00:00-06:00","datePublished":"2021-02-03T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://krishnans14.github.io/feedback-control/projects/babysteps/2021/02/03/OctopAI.html"},"author":{"@type":"Person","name":"Krishnan Srinivasarengan"},"description":"An obstacle avoidance game to test AI","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/feedback-control/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://krishnans14.github.io/feedback-control/feed.xml" title="Post-Modern Control Engineer" /><link rel="shortcut icon" type="image/x-icon" href="/feedback-control/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/feedback-control/">Post-Modern Control Engineer</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/feedback-control/about/">About Me</a><a class="page-link" href="/feedback-control/search/">Search</a><a class="page-link" href="/feedback-control/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">OctopAI</h1><p class="page-description">An obstacle avoidance game to test AI</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-03T00:00:00-06:00" itemprop="datePublished">
+        Feb 3, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Krishnan Srinivasarengan</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/feedback-control/categories/#projects">projects</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/feedback-control/categories/#babysteps">babysteps</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Prelude">Prelude </a></li>
+<li class="toc-entry toc-h2"><a href="#The-inspiration:-Flappy-Bird-AI">The inspiration: Flappy Bird AI </a></li>
+<li class="toc-entry toc-h2"><a href="#AI-enabled-Octopus">AI-enabled Octopus </a></li>
+<li class="toc-entry toc-h2"><a href="#The-way-ahead">The way ahead </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-02-03-OctopAI.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Prelude">
+<a class="anchor" href="#Prelude" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prelude<a class="anchor-link" href="#Prelude"> </a>
+</h2>
+<p>My fascination towards octopus comes from a three-pronged attack of the intellectual, the fantastical, and the personal.</p>
+<ul>
+<li>The cognitive capabilities of the cephalopods in general and the octopus in particular, are fascinating. My pet hypothesis is that, if only the octopus had evolved to live a social life and live longer, they would be ruling the underwater.</li>
+<li>The tentacles from the sea have captivated human imaginations and my favourite horror story write H.P.Lovecraft's cosmic horror comes in the form of an octopus headed abomination.</li>
+<li>As a scuba diver, I have had my share of encounters with the octopus that even went on to have one of them hitching a ride on my palms for a few minutes.</li>
+</ul>
+<p>So when I wanted to write a game that would have the ambition of training a moving object (preferably a living being) using AI, I immediately chose an octopus.</p>
+<p><figure>
+  
+    <img class="docimage" src="/feedback-control/images/copied_from_nb/./../images/octopAI/oct2_full.png" alt="Octopus" style="max-width: 300px">
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-inspiration:-Flappy-Bird-AI">
+<a class="anchor" href="#The-inspiration:-Flappy-Bird-AI" aria-hidden="true"><span class="octicon octicon-link"></span></a>The inspiration: Flappy Bird AI<a class="anchor-link" href="#The-inspiration:-Flappy-Bird-AI"> </a>
+</h2>
+<p>The idea of this AI-enable octopus rests squarely on the Flappy Bird AI tutorial that I saw on YouTube at the <a href="https://www.youtube.com/watch?v=MMxFDaIOHsE&amp;list=PLzMcBGfZo4-lwGZWXz5Qgta_YNX3_vLS2">Tech with Time Channel</a>. The tutorial uses the Python programming language, something I have been diving deeper into. Further, it uses Pygame for the game environment (something I'm using for the <a href="https://github.com/krishnans14/monty-python-holy-grail-rpg">Monty Python RPG</a> project). It uses NEAT as the</p>
+<p>So I followed the tutorial without referring to his code on github and coded the Flappy Bird AI. Except for a couple of minor issues, it worked well out of the box.</p>
+<p>But I realized I did not want a Flappy Bird. And I also realized that I don't need to restrict the game to whatever simple stuffs we see. The idea of an Octopus came up and I decided to flex a bit of my sketching skills to develop the graphics.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="AI-enabled-Octopus">
+<a class="anchor" href="#AI-enabled-Octopus" aria-hidden="true"><span class="octicon octicon-link"></span></a>AI-enabled Octopus<a class="anchor-link" href="#AI-enabled-Octopus"> </a>
+</h2>
+<p>The present version of OctopAI (as of 03-Feb-2021) has three files</p>
+<ul>
+<li><code>octopAI.py</code></li>
+<li><code>octopAI_display_accessories.py</code></li>
+<li><code>config-feedforward.txt</code></li>
+</ul>
+<p>The <code>octopAI_display_accessories.py</code> contains the components necessary for the game, including the classes that form the basis of the game (<code>Octopus</code>, <code>Obstacle</code>, <code>Base</code>) and other functions. The <code>octopAI.py</code> contains the main function and also the invoking of the AI.</p>
+<p>A couple of screenshots from the game would give an idea of how things look:</p>
+<p><figure>
+  
+    <img class="docimage" src="/feedback-control/images/copied_from_nb/./../images/octopAI/octopAI_1.png" alt="OctopAI screenshot" style="max-width: 300px">
+    
+    
+</figure>
+
+<figure>
+  
+    <img class="docimage" src="/feedback-control/images/copied_from_nb/./../images/octopAI/octopAI_2.png" alt="OctopAI screenshot" style="max-width: 300px">
+    
+    
+</figure>
+</p>
+<p>In the second screenshot, we see multiple octopi because the NEAT is a genetic algorithm and tries different instances of the octopus (with different parameters) and improves their performance over different generations. The configuration file decides on these aspects (the number of instances, how the mutation happens, etc.)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-way-ahead">
+<a class="anchor" href="#The-way-ahead" aria-hidden="true"><span class="octicon octicon-link"></span></a>The way ahead<a class="anchor-link" href="#The-way-ahead"> </a>
+</h2>
+<p>This project is hosted on Github as <a href="https://github.com/krishnans14/OctopAI">OctopAI</a>. The current code as of January 2021 is working, but also differs very little from the tutorial except for the use of my own visuals. My idea is to effectively the separate the AI part and the visualization part so that I can work on them independently.</p>
+<p>I however plan to refine the entire project slowly whenever I have time. The following are the ideas I want to do.</p>
+<ul>
+<li>The visualization part<ul>
+<li>Bring in a larger screen and more complex obstacles. </li>
+<li>Apart from obstacles, we can also have specific objectives such as reaching a particular place. This might be a bit difficult in terms of the visualization. However, I can take inspiration from the <a href="https://github.com/vgripon/PyRat">PyRat game</a>.</li>
+<li>I can provide different types of organisms. That is, these organisms would have certain restrictions that are more closer to their real scenario. For example, an octopus versus shark (higher speed than octopus). The AI can try to train an ensemble of these different organisms (of course, I'm doing this because octopus will win against everyone because of their flexibility). </li>
+</ul>
+</li>
+<li>AI part<ul>
+<li>My main motivation is to learn how to tune neural networks automatically. To this end I plan to learn and try several of them.</li>
+<li>NEAT is the starting point. I would try to look at ways to incorporate multi-criterion version of NEAT for this case (when I expand the game).</li>
+<li>Reinforcement learning is something that I'm very interested in. Especially Q-learning.</li>
+<li>I'm interested to understand if I can use <a href="implicit-layers-tutorial.org/">implicit layers</a> in the neural network model to make a better performing AI overall.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="krishnans14/feedback-control"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/feedback-control/projects/babysteps/2021/02/03/OctopAI.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/feedback-control/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feedback-control/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/feedback-control/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog on the musings around feedback control systems in the rapidly changing modern tech world.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/krishnans14" title="krishnans14"><svg class="svg-icon grey"><use xlink:href="/feedback-control/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/krishnans14" title="krishnans14"><svg class="svg-icon grey"><use xlink:href="/feedback-control/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
