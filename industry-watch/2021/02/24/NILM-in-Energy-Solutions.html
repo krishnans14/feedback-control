@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Household energy providers and NILM | Post-Modern Control Engineer</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Household energy providers and NILM" />
+<meta name="author" content="Krishnan Srinivasarengan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A survey of what energy providers in France do with household smart meter data" />
+<meta property="og:description" content="A survey of what energy providers in France do with household smart meter data" />
+<link rel="canonical" href="https://krishnans14.github.io/feedback-control/industry-watch/2021/02/24/NILM-in-Energy-Solutions.html" />
+<meta property="og:url" content="https://krishnans14.github.io/feedback-control/industry-watch/2021/02/24/NILM-in-Energy-Solutions.html" />
+<meta property="og:site_name" content="Post-Modern Control Engineer" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-24T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://krishnans14.github.io/feedback-control/industry-watch/2021/02/24/NILM-in-Energy-Solutions.html","@type":"BlogPosting","headline":"Household energy providers and NILM","dateModified":"2021-02-24T00:00:00-06:00","datePublished":"2021-02-24T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://krishnans14.github.io/feedback-control/industry-watch/2021/02/24/NILM-in-Energy-Solutions.html"},"author":{"@type":"Person","name":"Krishnan Srinivasarengan"},"description":"A survey of what energy providers in France do with household smart meter data","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/feedback-control/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://krishnans14.github.io/feedback-control/feed.xml" title="Post-Modern Control Engineer" /><link rel="shortcut icon" type="image/x-icon" href="/feedback-control/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/feedback-control/">Post-Modern Control Engineer</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/feedback-control/about/">About Me</a><a class="page-link" href="/feedback-control/search/">Search</a><a class="page-link" href="/feedback-control/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Household energy providers and NILM</h1><p class="page-description">A survey of what energy providers in France do with household smart meter data</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-24T00:00:00-06:00" itemprop="datePublished">
+        Feb 24, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Krishnan Srinivasarengan</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/feedback-control/categories/#industry-watch">industry-watch</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Context">Context </a></li>
+<li class="toc-entry toc-h2"><a href="#Electricity-Distribution-in-France">Electricity Distribution in France </a></li>
+<li class="toc-entry toc-h2"><a href="#What's-in-the-deal?">What&#39;s in the deal? </a></li>
+<li class="toc-entry toc-h2"><a href="#NILM-offerings">NILM offerings </a></li>
+<li class="toc-entry toc-h2"><a href="#Some-Final-Thoughts">Some Final Thoughts </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-02-24-NILM-in-Energy-Solutions.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Context">
+<a class="anchor" href="#Context" aria-hidden="true"><span class="octicon octicon-link"></span></a>Context<a class="anchor-link" href="#Context"> </a>
+</h2>
+<p>My previous articles on NILM focused on the technology in itself (either through my <a href="https://krishnans14.github.io/feedback-control/projects/2020/12/30/NILM.html">experience</a> or through a <a href="https://krishnans14.github.io/feedback-control/industry-watch/2021/02/02/NILM-Companies.html">survey of companies that offer NILM solution</a>). In this article, I attempt to look at how energy service providers leverage NILM as part of the service they offer to the clients.</p>
+<p>Given my current presence in France and for the sake of focus, I look at the French market.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Electricity-Distribution-in-France">
+<a class="anchor" href="#Electricity-Distribution-in-France" aria-hidden="true"><span class="octicon octicon-link"></span></a>Electricity Distribution in France<a class="anchor-link" href="#Electricity-Distribution-in-France"> </a>
+</h2>
+<p>France is one of the largest energy-producing and consumption markets with a unique twist: About 70% of the production comes from nuclear (and hence making the per capita CO2 emission of the country far below compared to countries of similar per capita wealth). The French electricity distribution was a government monopoly until the European directive required the market to open up for private players. This market continues to be dominated by <a href="https://en.wikipedia.org/wiki/%C3%89lectricit%C3%A9_de_France">EDF</a>, which holds around 70% of the share. Ever since the opening up of the distribution market a decade or so back, many other providers have started to creep up, with now more than 35 odd companies providing the distribution.</p>
+<p>When I started to understand the whole domain, I had to <em>unknot</em> many aspects. The market appears to overflow with companies of different sizes and origin. There are giants like EDF, <a href="https://en.wikipedia.org/wiki/Engie">ENGIE</a>, <a href="https://en.wikipedia.org/wiki/Total_Direct_%C3%89nergie">TOTAL</a>, <a href="https://en.wikipedia.org/wiki/Eni">Eni</a> and new players like <a href="https://www.ovoenergy.com/">OVO</a>, <a href="https://ohm-energie.com/">Ohm Energie</a>. Further, companies with experience in other domains jumping in (Like Leclerc and Cdiscount now have their subsidiaries distributing electricity). A full list can be referred to here: <a href="https://www.fournisseurs-electricite.com/fournisseurs">fournisseurs-electricite</a>. Note that since gas distribution and electricity distribution intertwine in France, most providers offer both.</p>
+<p>The market is so crowded that there are organizations that provide help (through online chatbots) in one's ability to choose the right providers, such as <a href="https://www.hellowatt.fr/">Hello watt</a>, <a href="https://www.hopenergie.com">Hope Énergie</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What's-in-the-deal?">
+<a class="anchor" href="#What's-in-the-deal?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's in the deal?<a class="anchor-link" href="#What's-in-the-deal?"> </a>
+</h2>
+<p>The large spectrum of companies that offer electricity distribution owes to the opening up of the market. A small part of this also owes to the introduction of smart meters, called <strong>Linky</strong>. The responsibility to install these smart meters in households across France rests with the electric grid operator, <a href="https://www.enedis.fr/">ENEDIS</a>. Enedis is also responsible for the secure collection, transmission and storage of the data generated. This process enables the energy distribution company with which a house has a contract can have access to that data (for billing and other purposes).</p>
+<p>A good video explaining what Enedis does and how the Linky smart meters are standardized can be accessed <a href="https://youtu.be/Flw-Tbb1C_k">here</a>. The video is in French, though the auto-translation may help. I'm quite intrigued by the ability to standardize something like an electronic device that has to work the same way for several years across a country (that's for another time).</p>
+<p>So, what differentiates the offer from different companies?</p>
+<ol>
+<li>What production sources are available? Renewable, renewable+nuclear, versus everything.</li>
+<li>What's the cost per kW-hr?</li>
+<li>The type of offer based on usage-behaviour (such as weekend-focused)</li>
+</ol>
+<p>Beyond these, some companies insist on the country of origin of the energy sources, whereas some go hyper-local such as <a href="https://www.urbansolarenergy.fr/">Urban Solar Energy</a>, <a href="https://electriciteprovence.fr/">Electricité de PROVENCE</a>. Among these 35 odd companies, several small and independent companies offer purely renewable energy produced electricity. See for instance, <a href="https://www.planete-oui.fr/">Planet OUI</a>, <a href="https://www.ilek.fr/">ilek</a>, <a href="https://ekwateur.fr/">ekWateur</a> and so on. Nearly one-third of the 35 odd companies I surveyed focused purely on renewable-energy-only production.</p>
+<p>I wondered, why are there so many players doing almost the same thing? Sure, it is easy to get into this business now and that you are almost always going to eat into the EDF market share, something that is available for everyone to take a bite. But then, this is how the startup landscape is. Get in and hope the VC money outlasts your rivals? Different companies may have different types of levers to manage the cost of the energy they supply (a great energy trading algorithm in a company or a host of energy production locked-in in another). But from a customer point-of-view, there is little separating them except for the above three factors. So, this number does not look sustainable, and it won't be long before some consolidation happens.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="NILM-offerings">
+<a class="anchor" href="#NILM-offerings" aria-hidden="true"><span class="octicon octicon-link"></span></a>NILM offerings<a class="anchor-link" href="#NILM-offerings"> </a>
+</h2>
+<p>My analysis was brief. But I was surprised at the lack of differentiating offers by any of these startups using the Linky data. These offers typically focus on the <em>cost</em> or <em>green</em> or both. It appears that since many of these companies are just setting up shop, they have nothing developed beyond the basic necessity of providing electricity connection. Several of the companies do not even have a 'Client Webspace' to check the consumption evolution. For example, OVO Energy says that their version is in beta testing (since they are a mature company from the UK, they are likely not far behind). And a review of <a href="https://bulb.fr/">Bulb</a> on <em>hello watt</em> says they don't have a web client (I guess that this is redundant as the comment was from 5 months ago).</p>
+<p>So it looks like almost all companies are just starting to provide meaningful insights into the electricity consumption to clients. But we know very well that they have been doing a lot elsewhere. For example, I had referred to this [talk by Katie Russell of OVO Energy] (<a href="https://www.youtube.com/watch?v=80M3zZHFa40">https://www.youtube.com/watch?v=80M3zZHFa40</a>) in my previous NILM blog entry. She talks about her experiences on the analytics on energy data in the UK and engaging with the customers. OVO Energy now has more than a decade of experience.</p>
+<p>Even in France, EDF has been providing appliance-category-level disaggregation for a while now. Here is how mine looked for the last year:</p>
+<p><figure>
+  
+    <img class="docimage" src="/feedback-control/images/copied_from_nb/./../images/nilm/nilm_edf.jpg" alt="" style="max-width: 300px">
+    
+    
+</figure>
+</p>
+<p>Apart from this, EDF also provides day by day consumption, comparison with other similar households, etc. These analytics appear straightforward. Perhaps they are, to an extent. However, one assumption here is that the client agrees to part with their data. Because, for each type of data access, the client needs to give explicit approval to companies. I can understand that EDF can provide these analytics because they already have access to a wealth of client data. So all they have to do is have a few developers and data scientists in place, and voilà, you have these nifty features. Most other companies may struggle because they would have little to no access to client data at the start to train their machine learning models. For a simple feature like 'comparison with similar households', one needs access to sufficiently many household data. For a company that is just starting up, this might be virtually impossible as they don't have data available.</p>
+<p>I think that data availability is a bottleneck. The reasoning is a bit twisted: my confidence in the abilities of some of these startups. For example, one of the NILM researchers I follow, <a href="https://scholar.google.com/citations?user=j4EQnpwAAAAJ&amp;hl=en">Oliver Parson</a>, works as a Data Scientist in Bulb's UK team. So, these organizations have the capability and expertise; all they need is data (which will all come in due time). And this is another reason why I suspect consolidation is a certainty in this market. Because if there are several companies, the smart meter data also gets distributed across all these companies. Hence, only big players can provide insightful analytics (to save energy, for instance), which might become a differentiator in a crowded market with near-similar offers. And this would naturally lead to mergers.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Some-Final-Thoughts">
+<a class="anchor" href="#Some-Final-Thoughts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Some Final Thoughts<a class="anchor-link" href="#Some-Final-Thoughts"> </a>
+</h2>
+<p>Of course, I might be wrong in my assertion here. Because, my analysis was pretty superficial (limited by the lack of access to the app from each of these companies). But what is clear is that the French electricity distribution market is due for some analytics spice-up. It looks unlikely to come from the established players (EDF does not seem to offer much more than basic analytics) but can come from innovative startups and small players. If the French startups have to differentiate themselves in this regard, they have to ramp up their analytics work compared to those coming in with a lot more experience (such as OVO Energy or Bulb).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="krishnans14/feedback-control"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/feedback-control/industry-watch/2021/02/24/NILM-in-Energy-Solutions.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/feedback-control/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feedback-control/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/feedback-control/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog on the musings around feedback control systems in the rapidly changing modern tech world.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/krishnans14" title="krishnans14"><svg class="svg-icon grey"><use xlink:href="/feedback-control/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/krishnans14" title="krishnans14"><svg class="svg-icon grey"><use xlink:href="/feedback-control/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
