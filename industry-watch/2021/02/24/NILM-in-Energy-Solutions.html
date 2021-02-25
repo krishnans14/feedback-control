@@ -80,7 +80,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -164,7 +164,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#NILM-offerings" aria-hidden="true"><span class="octicon octicon-link"></span></a>NILM offerings<a class="anchor-link" href="#NILM-offerings"> </a>
 </h2>
 <p>My analysis was brief. But I was surprised at the lack of differentiating offers by any of these startups using the Linky data. These offers typically focus on the <em>cost</em> or <em>green</em> or both. It appears that since many of these companies are just setting up shop, they have nothing developed beyond the basic necessity of providing electricity connection. Several of the companies do not even have a 'Client Webspace' to check the consumption evolution. For example, OVO Energy says that their version is in beta testing (since they are a mature company from the UK, they are likely not far behind). And a review of <a href="https://bulb.fr/">Bulb</a> on <em>hello watt</em> says they don't have a web client (I guess that this is redundant as the comment was from 5 months ago).</p>
-<p>So it looks like almost all companies are just starting to provide meaningful insights into the electricity consumption to clients. But we know very well that they have been doing a lot elsewhere. For example, I had referred to this [talk by Katie Russell of OVO Energy] (<a href="https://www.youtube.com/watch?v=80M3zZHFa40">https://www.youtube.com/watch?v=80M3zZHFa40</a>) in my previous NILM blog entry. She talks about her experiences on the analytics on energy data in the UK and engaging with the customers. OVO Energy now has more than a decade of experience.</p>
+<p>So it looks like almost all companies are just starting to provide meaningful insights into the electricity consumption to clients. But we know very well that they have been doing a lot elsewhere. For example, I had referred to this <a href="https://www.youtube.com/watch?v=80M3zZHFa40">talk by Katie Russell of OVO Energy</a> in my previous NILM blog entry. She talks about her experiences on the analytics on energy data in the UK and engaging with the customers. OVO Energy now has more than a decade of experience.</p>
 <p>Even in France, EDF has been providing appliance-category-level disaggregation for a while now. Here is how mine looked for the last year:</p>
 <p><figure>
   
@@ -174,7 +174,30 @@ window.onload = wrap_img;
 </figure>
 </p>
 <p>Apart from this, EDF also provides day by day consumption, comparison with other similar households, etc. These analytics appear straightforward. Perhaps they are, to an extent. However, one assumption here is that the client agrees to part with their data. Because, for each type of data access, the client needs to give explicit approval to companies. I can understand that EDF can provide these analytics because they already have access to a wealth of client data. So all they have to do is have a few developers and data scientists in place, and voilà, you have these nifty features. Most other companies may struggle because they would have little to no access to client data at the start to train their machine learning models. For a simple feature like 'comparison with similar households', one needs access to sufficiently many household data. For a company that is just starting up, this might be virtually impossible as they don't have data available.</p>
-<p>I think that data availability is a bottleneck. The reasoning is a bit twisted: my confidence in the abilities of some of these startups. For example, one of the NILM researchers I follow, <a href="https://scholar.google.com/citations?user=j4EQnpwAAAAJ&amp;hl=en">Oliver Parson</a>, works as a Data Scientist in Bulb's UK team. So, these organizations have the capability and expertise; all they need is data (which will all come in due time). And this is another reason why I suspect consolidation is a certainty in this market. Because if there are several companies, the smart meter data also gets distributed across all these companies. Hence, only big players can provide insightful analytics (to save energy, for instance), which might become a differentiator in a crowded market with near-similar offers. And this would naturally lead to mergers.</p>
+<p>Apart from the data analytics based visualization, several simulation-based visualizations are available. For instance, my EDF app provides a sort of 'Energy simulator' that tells me what equipment of this type typically consumes. The visual is fun. We get a visual of different rooms in a house, and we navigate this visual to choose the equipment we want to understand more. Then, we can narrow down further to the specific type in our house or what we want to study. The app then tells us what the typical consumption is and adds some tips to save energy. Behind this fun simulation, EDF has used a wealth of data collected over the years to train and strengthen the models that run the simulation.</p>
+<p><figure>
+  
+    <img class="docimage" src="/feedback-control/images/copied_from_nb/./../images/nilm/nilm_edf_sim_1.jpg" alt="" style="max-width: 300px">
+    
+    
+</figure>
+
+<figure>
+  
+    <img class="docimage" src="/feedback-control/images/copied_from_nb/./../images/nilm/nilm_edf_sim_2.jpg" alt="" style="max-width: 300px">
+    
+    
+</figure>
+</p>
+<p>Another thing I found quite interesting is the game. Well, it looks actually like a test for people who do a course on 'Energy data analytics'. One or more consumption curves form the basis of a question, and we have to choose one of the four options given.  It is fun, but I think it also makes curious minds more knowledgeable, in particular, about the consumption characteristics of different appliances.</p>
+<p><figure>
+  
+    <img class="docimage" src="/feedback-control/images/copied_from_nb/./../images/nilm/nilm_edf_game.jpg" alt="" style="max-width: 300px">
+    
+    
+</figure>
+</p>
+<p>I think that data availability is a bottleneck. The reasoning is a bit twisted: from my confidence in the abilities of some of these startups. For example, one of the NILM researchers I follow, <a href="https://scholar.google.com/citations?user=j4EQnpwAAAAJ&amp;hl=en">Oliver Parson</a>, works as a Data Scientist in Bulb's UK team. So, these organizations have the capability and expertise; all they need is data (which will all come in due time). And this is another reason why I suspect consolidation is a certainty in this market. Because if there are several companies, the smart meter data also gets distributed across all these companies. Hence, only big players can provide insightful analytics (to save energy, for instance), which might become a differentiator in a crowded market with near-similar offers. And this would naturally lead to mergers.</p>
 
 </div>
 </div>
@@ -185,7 +208,7 @@ window.onload = wrap_img;
 <h2 id="Some-Final-Thoughts">
 <a class="anchor" href="#Some-Final-Thoughts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Some Final Thoughts<a class="anchor-link" href="#Some-Final-Thoughts"> </a>
 </h2>
-<p>Of course, I might be wrong in my assertion here. Because, my analysis was pretty superficial (limited by the lack of access to the app from each of these companies). But what is clear is that the French electricity distribution market is due for some analytics spice-up. It looks unlikely to come from the established players (EDF does not seem to offer much more than basic analytics) but can come from innovative startups and small players. If the French startups have to differentiate themselves in this regard, they have to ramp up their analytics work compared to those coming in with a lot more experience (such as OVO Energy or Bulb).</p>
+<p>Of course, I might be wrong in my assertion here. Because, my analysis was pretty superficial (limited by the lack of access to the app from each of these companies). But what is clear is that the French electricity distribution market is due for some analytics spice-up. It looks like the established players have all the cards, but something new can come from innovative startups and small players. One thing is clear, if the French startups have to differentiate themselves in this regard, they have to ramp up their analytics work compared to those coming in with a lot more experience (such as OVO Energy or Bulb) or with a lot of data and experience (like EDF).</p>
 
 </div>
 </div>
