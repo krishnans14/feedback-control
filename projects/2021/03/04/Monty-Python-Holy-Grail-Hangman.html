@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Holy grail hangman | Post-Modern Control Engineer</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Holy grail hangman" />
+<meta name="author" content="Krishnan Srinivasarengan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A hangman that involves testing your Monty python Holy grail movie dialog skills" />
+<meta property="og:description" content="A hangman that involves testing your Monty python Holy grail movie dialog skills" />
+<link rel="canonical" href="https://krishnans14.github.io/feedback-control/projects/2021/03/04/Monty-Python-Holy-Grail-Hangman.html" />
+<meta property="og:url" content="https://krishnans14.github.io/feedback-control/projects/2021/03/04/Monty-Python-Holy-Grail-Hangman.html" />
+<meta property="og:site_name" content="Post-Modern Control Engineer" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-04T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://krishnans14.github.io/feedback-control/projects/2021/03/04/Monty-Python-Holy-Grail-Hangman.html","@type":"BlogPosting","headline":"Holy grail hangman","dateModified":"2021-03-04T00:00:00-06:00","datePublished":"2021-03-04T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://krishnans14.github.io/feedback-control/projects/2021/03/04/Monty-Python-Holy-Grail-Hangman.html"},"author":{"@type":"Person","name":"Krishnan Srinivasarengan"},"description":"A hangman that involves testing your Monty python Holy grail movie dialog skills","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/feedback-control/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://krishnans14.github.io/feedback-control/feed.xml" title="Post-Modern Control Engineer" /><link rel="shortcut icon" type="image/x-icon" href="/feedback-control/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/feedback-control/">Post-Modern Control Engineer</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/feedback-control/about/">About Me</a><a class="page-link" href="/feedback-control/search/">Search</a><a class="page-link" href="/feedback-control/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Holy grail hangman</h1><p class="page-description">A hangman that involves testing your Monty python Holy grail movie dialog skills</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-04T00:00:00-06:00" itemprop="datePublished">
+        Mar 4, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Krishnan Srinivasarengan</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/feedback-control/categories/#projects">projects</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Context">Context </a></li>
+<li class="toc-entry toc-h2"><a href="#Preparing-the-Pythoraus">Preparing the Pythoraus </a></li>
+<li class="toc-entry toc-h2"><a href="#Hangman-Display---Holy-Grail-Style">Hangman Display - Holy Grail Style </a></li>
+<li class="toc-entry toc-h2"><a href="#Final-Remarks">Final Remarks </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-03-04-Monty-Python-Holy-Grail-Hangman.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Context">
+<a class="anchor" href="#Context" aria-hidden="true"><span class="octicon octicon-link"></span></a>Context<a class="anchor-link" href="#Context"> </a>
+</h2>
+<p>When the time came to choose a programming language, I chose Python because the name was inspired by the inimitable <em>Monty Python</em>. As a <em>Pythonist</em>, I also used Monty Python as an inspiration when I wanted to learn the Python programming language. I started working on the (now paused) <a href="https://github.com/krishnans14/monty-python-holy-grail-rpg">RPG based on the Monty Python holy grail movie</a> project. I learned to play around with the <code>pygame</code> module as well as a bit about the objected-oriented aspects of Python.</p>
+<p>I had noted down a long time back that I wanted to use the contents from the remarkable website <a href="https://www.montypython.net">MontyPython.net</a> in some application or the other. So when I saw a <a href="https://www.youtube.com/watch?v=m4nEnsavl6w">hangman game implementation in Python on the Kite Youtube channel</a>, I immediately thought that I should build a hangman, but with a Monty Python theme.</p>
+<p>This blog entry is the story of how that came about.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Preparing-the-Pythoraus">
+<a class="anchor" href="#Preparing-the-Pythoraus" aria-hidden="true"><span class="octicon octicon-link"></span></a>Preparing the Pythoraus<a class="anchor-link" href="#Preparing-the-Pythoraus"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash flash-error">
+    <svg class="octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+    <strong>Warning: </strong>Pythoraus is a word I just made up
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I wanted to say a <em>Python Thesaurus</em>, the word list that provides a pool for the game to pick words from. But, given that it would be silly to prepare a world list, I decided that it should be a quote list. The MontyPython.Net had the scripts, so all I needed now were web scraping tools.  I chose <code>BeautifulSoup</code> because I liked the name (you need to decide based on some condition).</p>
+<p>I quickly realized that making sense of the quotes from the entire Monty Python content (several movies and several seasons of the show) would be daunting. So I decided to stick to the Holy Grail movie script. Another reason tied my hands too. I found it difficult to narrow down on the popular quotes (to avoid using every dialogue or description). This is when I noticed that the website admin had done something awesome:  add audio clips to famous quotes, but only for the Holy Grail movie. So I decided to focus only on those quotes that have been given an audio file. I later added a few more quotes manually into the list generated, but, web scraping using BeautifulSoup did a great job. To make sure everything went smooth, I had to circumvent problems through some quirks, but overall, I got a nice set of quotes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://media1.tenor.com/images/291adb3c574f1c647ce6457f203c2a7d/tenor.gif?itemid=5136682"></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://media1.tenor.com/images/291adb3c574f1c647ce6457f203c2a7d/tenor.gif?itemid=5136682" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The sources used are as follows</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://montypython.net/grailmm1.php'</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+           <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://montypython.net/grailmm2.php'</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+           <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://montypython.net/grailmm3.php'</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following code gets the quotes into a list.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">monty_python_quotes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">quote</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">:</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="s1">'lxml'</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">aa</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">'a'</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">'href'</span> <span class="ow">in</span> <span class="n">aa</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span> <span class="c1">#looking for only those which are hyperlinks</span>
+            <span class="k">if</span> <span class="s1">'.wav'</span> <span class="ow">in</span>  <span class="n">aa</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">'href'</span><span class="p">]:</span> <span class="c1"># We are only looking for those quotes which have an associated sound file</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">aa</span><span class="o">.</span><span class="n">contents</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">quote</span> <span class="o">=</span> <span class="n">aa</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                     <span class="n">quote</span> <span class="o">=</span> <span class="n">aa</span><span class="o">.</span><span class="n">contents</span>
+
+        <span class="k">if</span> <span class="n">quote</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">quote</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">quote</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bs4</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">NavigableString</span><span class="p">):</span> <span class="c1"># It was observed that all the valid quotes were of this type</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">quote</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">:</span> <span class="c1"># To avoid single word quotes that were mostly useless.</span>
+                            <span class="n">monty_python_quotes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">quote</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">monty_python_quotes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">monty_python_quotes</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Hangman-Display---Holy-Grail-Style">
+<a class="anchor" href="#Hangman-Display---Holy-Grail-Style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hangman Display - Holy Grail Style<a class="anchor-link" href="#Hangman-Display---Holy-Grail-Style"> </a>
+</h2>
+<p>When I saw the terminal avatar of hangman, I felt that it is too generic and I needed something that captures the spirit of Monty Python. So what better than the Black Knight?</p>
+<p><figure>
+  
+    <img class="docimage" src="/feedback-control/images/copied_from_nb/./../images/holygrail_hangman/black_knight.png" alt="" style="max-width: 200px">
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So I created a series of black knight terminal avatar in the same way he loses limbs in the movie. One arm, then the next arm, one leg and then both legs.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">display_black_knight</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+    <span class="n">knight</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="sd">"""</span>
+<span class="sd">            "You lost. I'm off to cross the bridge"</span>
+
+
+<span class="sd">                  O</span>
+<span class="sd">                  |</span>
+
+
+
+<span class="sd">                """</span><span class="p">,</span>
+                <span class="sd">"""</span>
+<span class="sd">            "You loose both your legs. I won't call it a draw"</span>
+<span class="sd">                  _</span>
+<span class="sd">                 | |</span>
+<span class="sd">                  O</span>
+<span class="sd">                  |</span>
+
+
+
+<span class="sd">                """</span><span class="p">,</span>
+                <span class="sd">"""</span>
+<span class="sd">            "A single-legged knight?"</span>
+<span class="sd">                  _</span>
+<span class="sd">                 | |</span>
+<span class="sd">                  O</span>
+<span class="sd">                  |</span>
+<span class="sd">                  |</span>
+<span class="sd">                 /</span>
+
+<span class="sd">                """</span><span class="p">,</span>
+                <span class="sd">"""</span>
+<span class="sd">            "Now you got no hands"</span>
+<span class="sd">                  _</span>
+<span class="sd">                 | |</span>
+<span class="sd">                  O</span>
+<span class="sd">                  |</span>
+<span class="sd">                  |</span>
+<span class="sd">                 / \\</span>
+
+<span class="sd">                """</span><span class="p">,</span>
+                <span class="sd">"""</span>
+<span class="sd">            "Ouch! You lose your sword hand"</span>
+<span class="sd">                  _</span>
+<span class="sd">                 | |</span>
+<span class="sd">                  O</span>
+<span class="sd">                  |\\</span>
+<span class="sd">                  |</span>
+<span class="sd">                 / \\</span>
+
+<span class="sd">                """</span><span class="p">,</span>
+                <span class="sd">"""</span>
+<span class="sd">            "You are the Black knight"</span>
+<span class="sd">                  _</span>
+<span class="sd">                 | |</span>
+<span class="sd">                  O</span>
+<span class="sd">                \\/|\\</span>
+<span class="sd">                  |</span>
+<span class="sd">                 / \\</span>
+
+<span class="sd">                """</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">knight</span><span class="p">[</span><span class="n">state</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Awesome, isn't it? Well, at least I feel so. And I also added quotes on top.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The game provides the player with 5 guesses (if one feels an expert, they can go for the expert model with 3 chances). You can get the rest of the code here in the <a href="https://github.com/krishnans14/monty-python-holygrail-hangman">github repository</a>.</p>
+<p>And below is the case when I go through all stages of the black knight state and lose:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><figure>
+  
+    <img class="docimage" src="/feedback-control/images/copied_from_nb/./../images/holygrail_hangman/game_lost.gif" alt="">
+    
+    
+</figure>
+</p>
+<p>And here I win.</p>
+<p><img src="/feedback-control/images/copied_from_nb/./../images/holygrail_hangman/game_lost.gif" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Final-Remarks">
+<a class="anchor" href="#Final-Remarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final Remarks<a class="anchor-link" href="#Final-Remarks"> </a>
+</h2>
+<p>I took some time to write this blog entry because I hoped to finish an ipython-widget-based version of the game (hence everyone can play the game using binder). But it got stuck in some technicalities (and I still have to figure out if everything I want to do will work well with the widgets). So until I get that up and running, you have no other choice but to download the code from the repository and play the game.</p>
+<p>Have fun.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="krishnans14/feedback-control"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/feedback-control/projects/2021/03/04/Monty-Python-Holy-Grail-Hangman.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/feedback-control/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feedback-control/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/feedback-control/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog on the musings around feedback control systems in the rapidly changing modern tech world.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/krishnans14" title="krishnans14"><svg class="svg-icon grey"><use xlink:href="/feedback-control/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/krishnans14" title="krishnans14"><svg class="svg-icon grey"><use xlink:href="/feedback-control/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
