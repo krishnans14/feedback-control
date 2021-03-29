@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Data Storytelling and smart meter energy analytics - I | Post-Modern Control Engineer</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Data Storytelling and smart meter energy analytics - I" />
+<meta name="author" content="Krishnan Srinivasarengan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="some thoughts on creating richness out of sparse data" />
+<meta property="og:description" content="some thoughts on creating richness out of sparse data" />
+<link rel="canonical" href="https://krishnans14.github.io/feedback-control/industry-watch/musings/2021/03/29/DataStorytelling-Energy-Analytics-I.html" />
+<meta property="og:url" content="https://krishnans14.github.io/feedback-control/industry-watch/musings/2021/03/29/DataStorytelling-Energy-Analytics-I.html" />
+<meta property="og:site_name" content="Post-Modern Control Engineer" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-29T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://krishnans14.github.io/feedback-control/industry-watch/musings/2021/03/29/DataStorytelling-Energy-Analytics-I.html","@type":"BlogPosting","headline":"Data Storytelling and smart meter energy analytics - I","dateModified":"2021-03-29T00:00:00-05:00","datePublished":"2021-03-29T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://krishnans14.github.io/feedback-control/industry-watch/musings/2021/03/29/DataStorytelling-Energy-Analytics-I.html"},"author":{"@type":"Person","name":"Krishnan Srinivasarengan"},"description":"some thoughts on creating richness out of sparse data","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/feedback-control/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://krishnans14.github.io/feedback-control/feed.xml" title="Post-Modern Control Engineer" /><link rel="shortcut icon" type="image/x-icon" href="/feedback-control/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/feedback-control/">Post-Modern Control Engineer</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/feedback-control/about/">About Me</a><a class="page-link" href="/feedback-control/search/">Search</a><a class="page-link" href="/feedback-control/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Data Storytelling and smart meter energy analytics - I</h1><p class="page-description">some thoughts on creating richness out of sparse data</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-29T00:00:00-05:00" itemprop="datePublished">
+        Mar 29, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Krishnan Srinivasarengan</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/feedback-control/categories/#industry-watch">industry-watch</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/feedback-control/categories/#musings">musings</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Prelude">Prelude </a></li>
+<li class="toc-entry toc-h2"><a href="#Data-Storytelling">Data Storytelling </a></li>
+<li class="toc-entry toc-h2"><a href="#Dynamic-Data-Storytelling">Dynamic Data Storytelling </a></li>
+<li class="toc-entry toc-h2"><a href="#Stories:-Telling-truth-without-many-facts">Stories: Telling truth without many facts </a></li>
+<li class="toc-entry toc-h2"><a href="#Automatic,-Dynamic-Data-Storytelling">Automatic, Dynamic-Data Storytelling </a></li>
+<li class="toc-entry toc-h2"><a href="#Personalized,-Automatic,-Dynamic-Data-Storytelling">Personalized, Automatic, Dynamic-Data Storytelling </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-03-29-DataStorytelling-Energy-Analytics-I.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Prelude">
+<a class="anchor" href="#Prelude" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prelude<a class="anchor-link" href="#Prelude"> </a>
+</h2>
+<p>I finished the <a href="https://krishnans14.github.io/feedback-control/industry-watch/2021/02/24/NILM-in-Energy-Solutions.html">last blog entry</a> with an assertion that energy analytics could be a key differentiator in the crowded energy distribution market in France. And I even hypothesized that some aspects of these analytics might become a default expectation for the consumers (since EDF provides them).</p>
+<p>"The energy meter Linky collects barely any data," a Machine Learning engineer would say (24 samples per day). So creating deep insights isn't in the realm of practicality. This perspective is the reason why companies like <a href="https://www.smart-impulse.com/">Smart Impulse</a> or <a href="http://www.voltaware.com">Voltaware</a> have different types of add-on sensors that collect current data at a far higher frequency that can mine much more insights about the household consumption.</p>
+<p>The question is, what do the customers want? I'm going to bet on a time-tested human characteristic that gets exploited by social media companies: <strong>Stories</strong>.</p>
+<p>In this article, I will trace my motivation by going through various forms of storytelling that uses data and bring up their relevance for energy analytics. The idea of this article came through a series of discussion with my friend Florian M-B, who is exploring the use of storytelling in recommendation systems as part of his doctoral studies.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-Storytelling">
+<a class="anchor" href="#Data-Storytelling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Storytelling<a class="anchor-link" href="#Data-Storytelling"> </a>
+</h2>
+<p>In his book, <strong>Sapiens: A Brief History of Humankind</strong>, Yuval Harari contends that one of the reasons our species rose to prominence on Earth is our storytelling ability (and extension such as imagined reality). In a way, humans are storytelling apes.</p>
+<p>Data storytelling has become an indispensable part of modern-day journalism. Hans Rosling's <a href="https://www.gapminder.org/">Gapminder</a> was one of the pioneers creating insightful stories about developmental activities using data collected over decades. That visualization approach now has become standard in reporting stories that affect millions of humans.</p>
+<p>The COVID-19 pandemic brought forth the full force of the use of Data Storytelling. The Washington Post article titled <a href="https://www.washingtonpost.com/graphics/2020/world/corona-simulator/">'Why outbreaks like coronavirus spread exponentially, and how to <em>flatten the curve</em> '</a> by Harry Stevens is likely the most read article on their website. Data storytelling has also become part of several key projects that share the motivations that journalists typically espouse. Sites such as <a href="https://ourworldindata.org/">Our World in Data</a> aim to focus precisely on that.</p>
+<p>Academia has also long talked about this through several research papers on Data storytelling and visualization [^1], [^2].</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dynamic-Data-Storytelling">
+<a class="anchor" href="#Dynamic-Data-Storytelling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dynamic Data Storytelling<a class="anchor-link" href="#Dynamic-Data-Storytelling"> </a>
+</h2>
+<p>One thing that emerged during the COVID-19 pandemic was the flurry of websites that provided a near-real-time update of the pandemic. A possibly obscure website like <a href="www.worldometers.info/">Worldometer</a> exploded in site visits by creating a simple aggregation of the COVID-19 numbers in different countries. During the initial stages of the lock-down, I would open up the website several times a day to follow the dynamics. There are several such sites today doing the aggregation (including excellent country-specific sites by respective governments). Some sites also provide forecast based on the models the sites' data-scientists have developed.</p>
+<p>These sites go one step above journalistic data storytelling by setting up a platform that helps convey some form of a story by dynamically accumulating data from multiple sources. Though the administrators behind the side update several aspects of the visualization, there is an automatic storytelling vibe. These sites inspired me to consider how one can extend this idea further.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Stories:-Telling-truth-without-many-facts">
+<a class="anchor" href="#Stories:-Telling-truth-without-many-facts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stories: Telling truth without many facts<a class="anchor-link" href="#Stories:-Telling-truth-without-many-facts"> </a>
+</h2>
+<p>Energy data analytics is challenging when only limited data is available. This limitation is why the current capabilities based on the Linky data are limited to:</p>
+<ul>
+<li>Daily Consumption Curve</li>
+<li>Yearly break up of consumption categories</li>
+<li>Comparison of Individual Consumption with Similar households</li>
+</ul>
+<p>I know that the yearly consumption breakup is erroneous in my case (the algorithm misidentifies my hot-plate stove load as water heating load, though this is understandable as both are resistive loads with similar usage characteristics in my house). I also have anecdotal evidence that a similar household comparison was misleading for at least one person I know. So are these pointless?</p>
+<p>Neil Gaiman, a master storyteller of our generation, once said about his transition from journalism to writing fiction, "I wanted to be able to tell the truth without ever needing to worry about the facts". While it might sound preposterous, the data storytelling for energy analytics with sparse data might have to take a leaf out of this approach. That is, even if we lack facts (data), we can strive to provide the truth (energy-awareness) by creating stories using:</p>
+<ul>
+<li>Universal commonalities (using statistics of all the data collected from everyone)</li>
+<li>Unusual occurrences (observing the anomalies in the smart meter data) </li>
+<li>Influences of the natural and social elements (using weather data, social events such as holidays)</li>
+<li>Legends from the past (historical data) </li>
+<li>The mental picture of a hero (energy consumption model of a particular household)</li>
+</ul>
+<p>In his <a href="https://www.youtube.com/watch?v=X_T8KDQLe2Q">talk in NILM workshop 2018</a>, Oliver Parson frets about the question that keeps him awake at night, "Are our insights useful for the customers to save energy?". I think that part of this owes to the expectation that Data Scientists want a cause-effect relationship between tips and energy savings. At the same time, they know that this causal relationship is weak due to the lack of data.</p>
+<p>One thing that can bring about a change to this situation is to note that energy-awareness is like <em>motivation</em>. One message might keep one motivated for a few days, at the most, and the repetition of a message can quickly create fatigue. Motivation is sustained through personal touch and novelty in the messages received. And this is the kind of effect energy a Data scientist would want to bring in.</p>
+<p>Even though the visualization generated for me by EDF is erroneous in terms of its results, it gave me sufficient motivation to look into my energy usage practice. For example, I used the daily energy consumption summary to understand the energy consumed by individual appliances (based on the weekday-weekend difference or whether I was present at home or not, etc.). This exploration provided me with a sense of contentment on my comfort-cost balance.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Automatic,-Dynamic-Data-Storytelling">
+<a class="anchor" href="#Automatic,-Dynamic-Data-Storytelling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Automatic, Dynamic-Data Storytelling<a class="anchor-link" href="#Automatic,-Dynamic-Data-Storytelling"> </a>
+</h2>
+<p>Generating automatic infographics using data from multiple sources is widespread today due to the explosion in the number of sensors to monitor complex systems. During my postdoctoral research work, we worked with <a href="https://www.tlgpro.fr/neotool/">TLGPro and their Neotool</a> that provides visualization for data from a multitude of sources. Several Build Energy Management System software products essentially do the same.</p>
+<p>In a way, NILM algorithms relying on high-frequency data build on top of such visualization and provide the analytics and insights to the user. One significant difference here, however, is the target audiences. For complex visualization tools, the target audiences are experts  (a manager in a factory or a building). Whereas in the energy analytics case, the target audience is an average consumer. Hence, the Data Storytelling aspects that journalists use become more pertinent.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Personalized,-Automatic,-Dynamic-Data-Storytelling">
+<a class="anchor" href="#Personalized,-Automatic,-Dynamic-Data-Storytelling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Personalized, Automatic, Dynamic-Data Storytelling<a class="anchor-link" href="#Personalized,-Automatic,-Dynamic-Data-Storytelling"> </a>
+</h2>
+<p>Beyond the question of the target audience, there is an element of 'personalization' involved in energy data analytics. Consumption data from a user is only available to their eyes. And they can only see an <em>anonymized, cumulative</em> version of others' data. Constraints, however, can also help in traversing the chaos of endless choices.</p>
+<p>This perspective does not necessarily change what currently the utilities are offering insights to the consumers. But the method of offering can change:</p>
+<ul>
+<li>Apart from offering daily consumption and weather per day as a list, one can display a weekly graph and compare one week to another when there is a significant temperature change.</li>
+<li>Along with offering 'comparison with similar household', one can add how similar household consumption changed during a vacation period compared to yours. Or how weather patterns changed mean consumption compared to the individual. <ul>
+<li>If the individual was concerned by a peak in their consumption but noted that this universal due to a weather pattern, they may be less alarmed. If not, the consumer may consider it as a call for action.</li>
+</ul>
+</li>
+<li>Provide a forecast of what would the individual's monthly or yearly bill would be if their consumption pattern is maintained. <ul>
+<li>A user can be presented with different paths to a particular energy bill. For example, suggesting the user shift consumption during non-peak periods.</li>
+</ul>
+</li>
+</ul>
+<p>And so on. A lot of this depends on how much data the customer is willing to share with the utility company. And making these visualizations automatic (or at least semi-automatic) has its own set of challenges.</p>
+<p>Automatic storytelling is a popular field in AI that extends its arms to cover areas beyond summarization or plot point generation[^3]. Metrics used for machine translation such as <a href="https://en.wikipedia.org/wiki/BLEU">BLEU</a>, <a href="https://en.wikipedia.org/wiki/METEOR">METEOR</a> or those for summarization/translation such as <a href="https://en.wikipedia.org/wiki/ROUGE_(metric">ROUGE</a>) can be good starting points.</p>
+<p>Academia has significant work from the perspective of applying storytelling techniques for time-series data[^4]. I would spend more time on these and works such as that by (Zhu et al.)[^5] to better formalize some automatic storytelling mechanisms. I also plan to develop some example visualizations for these ideas.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[^1] Gratzl et. al., From Visual Exploration to Storytelling and Back Again, 2016.</p>
+<p>[^2] Ojo and Heravi, Patterns in Award Winning Data Storytelling: Story Types, Enabling Tools and Competences, 2017.</p>
+<p>[^3]  Yao et. al., Plan-and-Write: Towards Better Automatic Storytelling, 2019</p>
+<p>[^4] Battad and Si, Apply Storytelling Techniques for Describing Time-Series Data. 2018.</p>
+<p>[^5] Zhu et. al., A survey on automatic infographics and visualization recommendations, 2020.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="krishnans14/feedback-control"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/feedback-control/industry-watch/musings/2021/03/29/DataStorytelling-Energy-Analytics-I.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/feedback-control/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feedback-control/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/feedback-control/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog on the musings around feedback control systems in the rapidly changing modern tech world.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/krishnans14" title="krishnans14"><svg class="svg-icon grey"><use xlink:href="/feedback-control/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/krishnans14" title="krishnans14"><svg class="svg-icon grey"><use xlink:href="/feedback-control/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
