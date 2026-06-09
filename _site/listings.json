@@ -1,0 +1,23 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/post-with-code/index.html",
+      "/posts/welcome/index.html",
+      "/posts/2021-03-29-datastorytelling-energy-analytics-i.html",
+      "/posts/2021-03-04-monty-python-holy-grail-hangman.html",
+      "/posts/2021-02-24-nilm-in-energy-solutions.html",
+      "/posts/2021-02-03-octopai.html",
+      "/posts/2021-02-02-nilm-companies.html",
+      "/posts/2021-01-20-Time-Series-Analysis-Python.html",
+      "/posts/2021-01-12-domains-agnosticism.html",
+      "/posts/2021-01-08-project-sphereau.html",
+      "/posts/2020-12-30-nilm.html",
+      "/posts/2020-12-18-autoencoders-hope-or-hype-i.html",
+      "/posts/2020-12-17-monitron-and-predictive-maintenance.html",
+      "/posts/2020-12-01-cricket-versus-baseball.html",
+      "/posts/2020-12-01-feline-classifier.html",
+      "/posts/2020-11-23-about-the-blog.html"
+    ]
+  }
+]

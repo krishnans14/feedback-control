@@ -1,0 +1,16 @@
+---
+title: "About"
+image: images/logo.png
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/krishnans14
+    - icon: github
+      text: Github
+      href: https://github.com/krishnans14
+
+---
+
+About this blog

@@ -1,0 +1,26 @@
+project:
+  type: website
+  resources:
+    - files/
+    - images/
+
+website:
+  description: "Post-modern Control Engineer"
+  site-url: krishnans14.github.io/feedback-control # you must change this appropriately for RSS feeds to work properly
+  title: "feedback-control"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/krishnans14
+      - icon: linkedin
+        href: https://linkedin.com/in/krishnans14
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+
+
+
