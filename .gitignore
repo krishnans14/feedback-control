@@ -1,2 +1,4 @@
 /.quarto/
 **/*.quarto_ipynb
+migrate_quarto_post.py
+Patch_frontmatter.py
